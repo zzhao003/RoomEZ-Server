@@ -4,10 +4,23 @@ const knex = require("knex")(require("../knexfile"));
 
 router.post("/", (req, res) => {
   knex("user")
-    .select("passowrd")
-    .where({ email: req.body.mail })
+    .select("id", "password", "first_name", "last_name")
+    .where({ email: req.body.email })
     .then((data) => {
-      res.status(200).json(data[0]);
+      if (!data.length) {
+        return res
+          .status(404)
+          .send(`Record with email: ${req.body.email} is not found`);
+      }
+      console.log(req.body.password, data[0].password);
+      if (data[0].password == req.body.password) {
+        return res.status(200).json({
+          first_name: data[0].first_name,
+          last_name: data[0].last_name,
+          id: data[0].id,
+        });
+      }
+      return res.status(401).send(`Wrong password`);
     })
     .catch((err) => res.status(400).send(`Error retrieving user ${err}`));
 });
