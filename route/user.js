@@ -6,7 +6,9 @@ router.get("/", (req, res) => {
   knex("user")
     .select(
       "id",
+      "img_url",
       "first_name",
+      "last_name",
       "age",
       "gender",
       "profession",

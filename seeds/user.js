@@ -9,6 +9,8 @@ exports.seed = async function (knex) {
     {
       id: "1",
       //'2922c286-16cd-4d43-ab98-c79f698aeab0'
+      email: "111",
+      password: "111",
       img_url:
         "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80",
       first_name: "James",
@@ -26,6 +28,8 @@ exports.seed = async function (knex) {
     {
       id: "2",
       //'2922c286-16cd-4d43-ab98-c79f698aeab0'
+      email: "222",
+      password: "222",
       img_url:
         "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80",
       first_name: "Lin",
@@ -42,6 +46,8 @@ exports.seed = async function (knex) {
     {
       id: "3",
       //'2922c286-16cd-4d43-ab98-c79f698aeab0'
+      email: "333",
+      password: "333",
       img_url:
         "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80",
       first_name: "Jessica",
