@@ -17,7 +17,6 @@ exports.up = function (knex) {
     table.string("img_url").notNullable();
     table.string("about").notNullable();
     table.timestamps(true, true);
-    // table.timestamp("updated_at").defaultTo(knex.fn.now());
   });
 };
 
