@@ -19,14 +19,31 @@ router.get("/", (req, res) => {
       "about"
     )
     .then((data) => {
-      const randomNum = Math.floor(Math.random() * data.length);
+      //filter out incomplete profiles
+      const filteredData = data.filter((item) => item.first_name !== null);
+      const randomNum = Math.floor(Math.random() * filteredData.length);
       res.status(200).json(data[randomNum]);
     })
     .catch((err) => res.status(400).send(`Error retrieving user ${err}`));
 });
 
-router.get("/:id", (req, res) => {});
-
-router.post("/", (req, res) => {});
+// update user info route
+router.put("/", (req, res) => {
+  knex("user")
+    .where({ id: req.body.id })
+    .update(req.body)
+    .then((data) => {
+      //data is 1 if found if 0 not found.
+      if (data == 0) {
+        return res
+          .status(404)
+          .send(`User with id: ${req.body.id} is not found`);
+      }
+      res.status(200).send("Update Successful");
+    })
+    .catch((err) => {
+      res.status(400).send(`Error updating user ${err}`);
+    });
+});
 
 module.exports = router;
