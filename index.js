@@ -4,6 +4,7 @@ const cors = require("cors");
 
 const userRoutes = require("./route/user");
 const loginRoutes = require("./route/login");
+const signupRoutes = require("./route/signup");
 
 require("dotenv").config();
 const { PORT, BACKEND_URL } = process.env;
@@ -13,6 +14,7 @@ app.use(cors());
 
 app.use("/api/user", userRoutes);
 app.use("/api/login", loginRoutes);
+app.use("/api/signup", signupRoutes);
 
 app.listen(PORT, () => {
   console.log("server sucess");

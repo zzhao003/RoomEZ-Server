@@ -12,7 +12,6 @@ router.post("/", (req, res) => {
           .status(404)
           .send(`Record with email: ${req.body.email} is not found`);
       }
-      console.log(req.body.password, data[0].password);
       if (data[0].password == req.body.password) {
         return res.status(200).json({
           first_name: data[0].first_name,
