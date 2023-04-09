@@ -125,4 +125,17 @@ exports.seed = async function (knex) {
       about: "I love teaching and helping students discover their potential.",
     },
   ]);
+  await knex("lovestory").del();
+  await knex("lovestory").insert([
+    {
+      id: "1",
+      user: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
+      like: "90ac3319-70d1-4a51-b91d-ba6c2464408c",
+    },
+    {
+      id: "2",
+      user: "5bf7bd6c-2b16-4129-bddc-9d37ff8539e9",
+      like: "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    },
+  ]);
 };
