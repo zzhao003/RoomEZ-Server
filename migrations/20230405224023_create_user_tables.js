@@ -23,7 +23,11 @@ exports.up = function (knex) {
     })
     .createTable("lovestory", (table) => {
       table.uuid("id").primary();
-      table.string("user");
+      table
+        .uuid("user_id")
+        .references("user.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
       table.string("like");
       table.string("match");
       table.timestamps(true, true);

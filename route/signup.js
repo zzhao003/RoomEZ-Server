@@ -15,8 +15,8 @@ router.post("/", (req, res) => {
             `Account with email: ${req.body.email} already exist, please log in.`
           );
       }
-      const newUser = { ...req.body, id: randomUUID() };
 
+      const newUser = { ...req.body, id: randomUUID() };
       knex("user")
         .insert(newUser)
         .then((data) => {

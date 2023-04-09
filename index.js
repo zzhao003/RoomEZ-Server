@@ -9,6 +9,7 @@ const { uploader, cloudinaryConfig } = require("./config/cloudinaryConfig");
 const feedRoutes = require("./route/feed");
 const loginRoutes = require("./route/login");
 const signupRoutes = require("./route/signup");
+const likedRoutes = require("./route/liked");
 
 require("dotenv").config();
 const { PORT, BACKEND_URL } = process.env;
@@ -24,6 +25,7 @@ app.use("*", cloudinaryConfig);
 app.use("/api/feed", feedRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/signup", signupRoutes);
+app.use("/api/liked", likedRoutes);
 
 app.listen(PORT, () => {
   console.log("server sucess");
