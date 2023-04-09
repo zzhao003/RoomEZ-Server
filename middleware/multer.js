@@ -3,7 +3,7 @@ const DatauriParser = require("datauri/parser");
 const path = require("path");
 
 const storage = multer.memoryStorage();
-exports.multerUploads = multer({ storage }).single("image");
+exports.multerUploads = multer({ storage }).single("img_url");
 const dUri = new DatauriParser();
 /**
  * @description This function converts the buffer to data url

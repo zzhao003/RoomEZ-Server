@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const knex = require("knex")(require("../knexfile"));
+const { multerUploads, dataUri } = require("../middleware/multer");
+const { uploader, cloudinaryConfig } = require("../config/cloudinaryConfig");
 
 router.get("/", (req, res) => {
   knex("user")
@@ -28,22 +30,45 @@ router.get("/", (req, res) => {
 });
 
 // update user info route
-router.put("/", (req, res) => {
-  knex("user")
-    .where({ id: req.body.id })
-    .update(req.body)
-    .then((data) => {
-      //data is 1 if found if 0 not found.
-      if (data == 0) {
-        return res
-          .status(404)
-          .send(`User with id: ${req.body.id} is not found`);
-      }
-      res.status(200).send("Update Successful");
-    })
-    .catch((err) => {
-      res.status(400).send(`Error updating user ${err}`);
-    });
+router.put("/", multerUploads, (req, res) => {
+  if (req.file) {
+    const file = dataUri(req).content;
+    uploader
+      .upload(file)
+      .then((result) => {
+        const imageURL = result.url;
+        knex("user")
+          .where({ id: req.body.id })
+          .update({ ...req.body, img_url: imageURL })
+          .then((data) => {
+            //data is 1 if found if 0 not found.
+            if (data == 0) {
+              return res
+                .status(404)
+                .send(`User with id: ${req.body.id} is not found`);
+            }
+            return res.status(200).send("Update Successful");
+          });
+      })
+      .catch((err) => res.status(400).send(`Error updating user ${err}`));
+  } else {
+    knex("user")
+      .where({ id: req.body.id })
+      .update(req.body)
+      .then((data) => {
+        //data is 1 if found if 0 not found.
+        if (data == 0) {
+          return res
+            .status(404)
+            .send(`User with id: ${req.body.id} is not found`);
+        }
+        res.status(200).send("Update Successful");
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(400).send(`Error updating user ${err}`);
+      });
+  }
 });
 
 module.exports = router;
