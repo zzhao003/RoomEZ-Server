@@ -7,7 +7,7 @@ router.post("/getlikes", (req, res) => {
   knex("lovestory")
     .join("user", "user.id", "lovestory.user_id")
     .select(
-      // "id",
+      "lovestory.id",
       "img_url",
       "first_name",
       "last_name",
@@ -36,6 +36,23 @@ router.post("/postalike", (req, res) => {
       res.status(201).json(newLike);
     })
     .catch((err) => res.status(400).send(`Error sending the like: ${err}`));
+});
+
+router.delete("/", (req, res) => {
+  knex("lovestory")
+    .where({ id: req.body.id })
+    .del()
+    .then((data) => {
+      if (data == 0) {
+        return res
+          .status(404)
+          .send(`Entry with id: ${req.body.id} is not found`);
+      }
+      res.status(204).send(`Entry with id: ${req.body.id} is deleted`);
+    })
+    .catch((err) =>
+      res.status(400).send(`Error deleting entry ${req.body.id} ${err}`)
+    );
 });
 
 module.exports = router;
