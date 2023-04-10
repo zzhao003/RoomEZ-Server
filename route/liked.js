@@ -55,4 +55,22 @@ router.delete("/", (req, res) => {
     );
 });
 
+router.put("/", (req, res) => {
+  knex("lovestory")
+    .where({ id: req.body.id })
+    .update({ match: "true" })
+    .then((data) => {
+      //data is 1 if found if 0 not found.
+      if (data == 0) {
+        return res
+          .status(404)
+          .send(`match with id: ${req.body.id} is not found`);
+      }
+      res.send("Update success");
+    })
+    .catch((err) => {
+      res.status(400).send(`Error updating match ${req.body.id} ${err}`);
+    });
+});
+
 module.exports = router;
