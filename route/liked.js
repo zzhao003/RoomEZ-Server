@@ -20,7 +20,7 @@ router.post("/getlikes", (req, res) => {
       "movein_date",
       "about"
     )
-    .where({ like: req.body.id })
+    .where({ like: req.body.id, match: null })
     .then((data) => {
       res.status(200).json(data);
     })
