@@ -47,7 +47,8 @@ router.put("/", multerUploads, (req, res) => {
                 .status(404)
                 .send(`User with id: ${req.body.id} is not found`);
             }
-            return res.status(200).send("Update Successful");
+            console.log({ ...req.body, img_url: imageURL });
+            return res.status(200).json({ ...req.body, img_url: imageURL });
           });
       })
       .catch((err) => res.status(400).send(`Error updating user ${err}`));
@@ -62,7 +63,7 @@ router.put("/", multerUploads, (req, res) => {
             .status(404)
             .send(`User with id: ${req.body.id} is not found`);
         }
-        res.status(200).send("Update Successful");
+        res.status(200).json(req.body);
       })
       .catch((err) => {
         console.log(err);
