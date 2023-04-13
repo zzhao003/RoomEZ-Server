@@ -4,7 +4,7 @@ const knex = require("knex")(require("../knexfile"));
 const { multerUploads, dataUri } = require("../middleware/multer");
 const { uploader, cloudinaryConfig } = require("../config/cloudinaryConfig");
 
-router.get("/", (req, res) => {
+router.post("/", (req, res) => {
   knex("user")
     .select(
       "id",
@@ -21,8 +21,10 @@ router.get("/", (req, res) => {
       "about"
     )
     .then((data) => {
-      //filter out incomplete profiles
-      const filteredData = data.filter((item) => item.first_name !== null);
+      //filter out logged in user's profiles
+      const filteredData = data
+        .filter((item) => item.id !== req.body.id)
+        .filter((item) => item.first_name !== null);
       const randomNum = Math.floor(Math.random() * filteredData.length);
       res.status(200).json(data[randomNum]);
     })
@@ -47,7 +49,6 @@ router.put("/", multerUploads, (req, res) => {
                 .status(404)
                 .send(`User with id: ${req.body.id} is not found`);
             }
-            console.log({ ...req.body, img_url: imageURL });
             return res.status(200).json({ ...req.body, img_url: imageURL });
           });
       })
