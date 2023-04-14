@@ -8,7 +8,7 @@ module.exports = {
   connection: {
     host: "127.0.0.1",
     user: "root",
-    password: "rootroot",
+    password: process.env.DB_LOCAL_PASSWORD,
     database: "roomez",
     charset: "utf8",
   },
