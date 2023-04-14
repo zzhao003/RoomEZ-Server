@@ -20,7 +20,7 @@ exports.seed = async function (knex) {
       budget: "1200",
       area: "soho",
       pet: "false",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about:
         "Im tipsy 5 days a week! I’m always down to hit up thrift stores, also a big foodie so always trying new restaurants in the city! I am also very independent and love alone time as well.",
     },
@@ -38,7 +38,7 @@ exports.seed = async function (knex) {
       budget: "2000",
       area: "soho",
       pet: "true",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about: "I love food, my cat is sushi",
     },
     {
@@ -55,7 +55,7 @@ exports.seed = async function (knex) {
       budget: "1500",
       area: "soho",
       pet: "false",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about: "I can drink a lottttt",
     },
     {
@@ -72,7 +72,7 @@ exports.seed = async function (knex) {
       budget: "2200",
       area: "lES",
       pet: "false",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about: "I'm the best teacher of all time.",
     },
     {
@@ -89,7 +89,7 @@ exports.seed = async function (knex) {
       budget: "1900",
       area: "UES",
       pet: "false",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about:
         "I am a vegan, I love animals, I used to be a massage therepist, switching into software engineering to create tools that supports things Iam passionate about.",
     },
@@ -107,12 +107,12 @@ exports.seed = async function (knex) {
       budget: "1200",
       area: "soho",
       pet: "false",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about:
         "I like to dance, I like to work on coding challendges, Im going to be a great roommate.",
     },
     {
-      id: "2922c286-16cd-4d43-abs0-c79f698aeab0",
+      id: "2922c286-16cd-4d43-ars0-c79f698aeab0",
       email: "777",
       password: "777",
       img_url:
@@ -125,11 +125,11 @@ exports.seed = async function (knex) {
       budget: "2200",
       area: "Brooklyn",
       pet: "false",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about: "I am an actor. My favorite color is purple.",
     },
     {
-      id: "2922c286-16cd-4d43-abk8-c79fd98aeab0",
+      id: "2922c286-16cd-4d47-abk8-c79fd98aeab0",
       email: "888",
       password: "888",
       img_url:
@@ -142,12 +142,12 @@ exports.seed = async function (knex) {
       budget: "3200",
       area: "soho",
       pet: "false",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about:
         "I have a girl friend who lives in Queens, so I won't be home most of the time. I am a foodie and I know all the good food spots in NYC",
     },
     {
-      id: "2922c286-16cd-4d43-abs8-c79f698aeab0",
+      id: "2922c286-16cd-5d43-abs8-c79f698aeab0",
       email: "999",
       password: "999",
       img_url:
@@ -160,12 +160,12 @@ exports.seed = async function (knex) {
       budget: "2200",
       area: "Queens",
       pet: "false",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about:
         "I like to help my community. I used to work as a paralegal now Im challenging myself with software engineering.",
     },
     {
-      id: "2922c286-16cd-4d43-ab98-c79f698aeab0",
+      id: "2922c286-16cd-4d43-ab38-c79f698aeab0",
       email: "10101010",
       password: "10101010",
       img_url:
@@ -178,12 +178,12 @@ exports.seed = async function (knex) {
       budget: "2200",
       area: "soho",
       pet: "false",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about:
         "Im a software engineer in education. Im very competative in martial art",
     },
     {
-      id: "2922c286-16cd-4d43-ab98-c79f698aeab0",
+      id: "2922c286-16cd-4d43-ab93-c79f698aeab0",
       email: "qqq",
       password: "qqq",
       img_url:
@@ -196,7 +196,7 @@ exports.seed = async function (knex) {
       budget: "3200",
       area: "Brooklyn",
       pet: "false",
-      movein_date: "date string",
+      movein_date: "8/1/2023",
       about: "Im a UX designer who is passionate about entrepenuership. ",
     },
   ]);
